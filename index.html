@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>YT Editor — Portfolio</title>
+	<style>
+		:root{--bg:#0f1724;--muted:#94a3b8;--accent:#7c3aed;--text:#e6eef8}
+		*{box-sizing:border-box}
+		body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071026);color:var(--text);line-height:1.5}
+		.container{max-width:900px;margin:0 auto;padding:24px}
+		.site-header{padding:28px 0;text-align:center}
+		.name{margin:0;font-size:1.8rem}
+		.tag{color:var(--muted);margin-top:6px}
+		.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03);padding:18px;margin:18px 0;border-radius:12px}
+		.services-list{list-style:none;padding:0;margin:0}
+		.services-list li{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+		.note{color:var(--muted);margin-top:8px}
+		.videos{display:flex;flex-wrap:wrap;gap:16px}
+		.video-card{flex:1 1 320px}
+		.video-caption{color:var(--muted);font-size:0.9rem}
+		.site-footer{padding:20px 0;text-align:center;color:var(--muted)}
+		.cta{display:inline-block;margin-top:10px;padding:10px 14px;background:var(--accent);color:white;border-radius:8px;text-decoration:none}
+		button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:6px 8px;border-radius:6px;cursor:pointer}
+		@media (max-width:600px){.name{font-size:1.4rem}.container{padding:16px}}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<div class="container">
+			<h1 class="name">YouTube Editor — Portfolio</h1>
+			<p class="tag">Editor for <strong>MrBladeRX</strong> • Edits priced in <strong>Robux</strong></p>
+		</div>
+	</header>
+
+	<main class="container">
+		<section id="about" class="card">
+			<h2>About</h2>
+			<p>This portfolio showcases YouTube editing services, pricing (in Robux), and sample work.</p>
+		</section>
+
+		<section id="services" class="card">
+			<h2>Services & Prices</h2>
+			<ul class="services-list">
+				<li><strong>Basic Edit</strong> — 200 Robux<br/><small>Trim, color correction, simple cuts</small></li>
+				<li><strong>Highlight Edit</strong> — 450 Robux<br/><small>Montage/highlights, transitions, music sync</small></li>
+				<li><strong>Advanced Edit</strong> — 800 Robux<br/><small>Multicam, motion graphics, advanced effects</small></li>
+				<li><strong>Thumbnail + Short</strong> — 300 Robux<br/><small>Thumbnail design + 60s clip</small></li>
+			</ul>
+			<p class="note">Prices quoted in <strong>Robux</strong>. Contact for bundles or recurring discounts.</p>
+		</section>
+
+		<section id="portfolio" class="card">
+			<h2>Selected Work</h2>
+			<div class="videos">
+				<div class="video-card">
+					<a href="https://www.youtube.com/shorts/9Ggin98QJQA" target="_blank" rel="noopener noreferrer">
+						<img src="https://i.ytimg.com/vi/9Ggin98QJQA/hqdefault.jpg" alt="Sample Short thumbnail" style="width:100%;border-radius:8px;display:block" />
+					</a>
+					<div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+						<a class="cta" href="https://www.youtube.com/shorts/9Ggin98QJQA" target="_blank" rel="noopener noreferrer">View edit</a>
+						<p class="video-caption" style="margin:0">Sample Short — click View edit to open on YouTube</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="testimonials" class="card">
+			<h2>Testimonials</h2>
+			<blockquote>"Professional and fast — highly recommended." — MrBladeRX</blockquote>
+		</section>
+
+		<section id="contact" class="card">
+			<h2>Contact & Ordering</h2>
+			<p>Preferred contact: <strong>Discord</strong> or <strong>Roblox</strong>.</p>
+			<ul>
+				<li>Discord: <span id="discord-username">juiceworld0732</span> <button id="copyDiscord">Copy</button></li>
+				<li>Roblox: <span id="roblox-name">Jameson_319</span></li>
+			</ul>
+			<p>When ordering, include: project length, reference clips, style notes, and deadline.</p>
+			<a class="cta" href="#contact" id="orderNow">Order Now</a>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<small>Made for a YT editor — replace content with real details. Prices in Robux.</small>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById('copyDiscord')?.addEventListener('click', async function(){
+			const txt = document.getElementById('discord-username')?.innerText || '';
+			try{ await navigator.clipboard.writeText(txt); this.textContent = 'Copied!'; setTimeout(()=> this.textContent = 'Copy',1500);}catch(e){alert('Copy this: ' + txt);} 
+		});
+		document.getElementById('orderNow')?.addEventListener('click', function(e){e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior:'smooth'});});
+	</script>
+</body>
+</html>
+
